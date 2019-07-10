@@ -1,28 +1,26 @@
 @extends('layouts.userlayout')
-
 @section('content')
-
 	<!-- container -->
 	<div class="container">
-
 		<div class="row">
-			
 			<!-- Article main content -->
 			<article class="col-xs-12 maincontent">
 				<header class="page-header">
 					<h1 class="page-title">Registration</h1>
 				</header>
-				
-				<div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+				<div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-3">
 					<div class="panel panel-default">
 						<div class="panel-body">
 							<h3 class="thin text-center">Register a new account</h3>
-							<p class="text-center text-muted">Lorem ipsum dolor sit amet, <a href="/signin">Login</a> adipisicing elit. Quo nulla quibusdam cum doloremque incidunt nemo sunt a tenetur omnis odio. </p>
+							<p class="text-center text-muted">your information Should be the same with your bank <a href="/signin">Login</a> To Your Account </p>
 							<hr>
-
 							<form>
 								<div class="top-margin">
 									<label>First Name</label>
+									<input type="text" class="form-control">
+								</div>
+								<div class="top-margin">
+									<label>Other Name</label>
 									<input type="text" class="form-control">
 								</div>
 								<div class="top-margin">
@@ -30,6 +28,72 @@
 									<input type="text" class="form-control">
 								</div>
 								<div class="top-margin">
+									<label>State of Origin
+									</label>
+									<input type="text" class="form-control">
+								</div>
+								<div class="top-margin">
+									<label>Place of Birth</label>
+									<input type="text" class="form-control">
+								</div>
+								<br>
+								<div class="row">
+						
+					</div>
+					
+					<div class="row">
+						<div class="col-sm-3">
+							<label>Date of Birth <span class="text-danger">*</span></label>
+							<select class="form-control">
+								<option disabled selected value="">Select Date</option>
+								<option>1</option>
+								<option>2</option>
+								<option>3</option>
+								<option>4</option>
+								<option>5</option>
+								<option>6</option>
+								<option>7</option>
+								<option>8</option>
+								<option>9</option>
+								<option>10</option>
+								<option>11</option>
+								<option>12</option>
+								<option>13</option>
+								<option>14</option>
+								<option>15</option>
+								<option>16</option>
+								<option>17</option>
+								<option>18</option>
+								<option>19</option>
+								<option>20</option>
+								<option>21</option>
+								<option>22</option>
+								<option>23</option>
+								<option>24</option>
+								<option>25</option>
+								<option>26</option>
+								<option>27</option>
+								<option>28</option>
+								<option>29</option>
+								<option>30</option>
+								<option>31</option>
+							</select>
+						</div>
+						<div class="col-sm-3">
+							<label> Month <span class="text-danger">*</span></label>
+							<input class="form-control" type="text" placeholder="select Month">
+						</div>
+							<div class="col-sm-3">
+							<label>Year <span class="text-danger">*</span></label>
+							<input class="form-control" type="text" placeholder="Select Year">
+						</div>
+						<br>
+						<br>
+						<div class="top-margin">
+							<label>Permanent Home Address</label>
+							<input type="text" class="form-control">
+						</div>
+						<div class="top-margin">
 									<label>Email Address <span class="text-danger">*</span></label>
 									<input type="text" class="form-control">
 								</div>
@@ -44,9 +108,7 @@
 										<input type="text" class="form-control">
 									</div>
 								</div>
-
 								<hr>
-
 								<div class="row">
 									<div class="col-lg-8">
 										<label class="checkbox">
@@ -61,13 +123,9 @@
 							</form>
 						</div>
 					</div>
-
 				</div>
-				
 			</article>
 			<!-- /Article -->
-
 		</div>
 	</div>	<!-- /container -->
-
 @endsection
