@@ -17,6 +17,7 @@
 	<!-- Custom styles for our template -->
 	<link rel="stylesheet" href="{{URL::asset('front/css/bootstrap-theme.css')}}" media="screen" >
 	<link rel="stylesheet" href="{{URL::asset('front/css/main.css')}}">
+	<link rel="stylesheet" href="{{URL::asset('css/app.css')}}">
 
 	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	<!--[if lt IE 9]>
@@ -150,5 +151,6 @@
 	<script src="{{URL::asset('front/js/headroom.min.js')}}"></script>
 	<script src="{{URL::asset('front/js/jQuery.headroom.min.js')}}"></script>
 	<script src="{{URL::asset('front/js/template.js')}}"></script>
+	<script src="{{URL::asset('front/js/uapp.js')}}"></script>
 </body>
 </html>

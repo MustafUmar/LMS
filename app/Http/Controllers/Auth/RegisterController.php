@@ -28,7 +28,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -40,6 +40,11 @@ class RegisterController extends Controller
         $this->middleware('guest');
     }
 
+    public function showRegistrationForm()
+    {
+        return view('users.register');
+    }
+
     /**
      * Get a validator for an incoming registration request.
      *
@@ -49,9 +54,11 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
+            'firstname' => ['required', 'string', 'max:255'],
+            'lastname' => ['required', 'string', 'max:255'],
+            'phone' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'password' => ['required', 'string', 'confirmed'],
         ]);
     }
 
@@ -64,9 +71,24 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         return User::create([
-            'name' => $data['name'],
+            'firstname' => $data['firstname'],
+            'lastname' => $data['lastname'],
             'email' => $data['email'],
+            'phone' => $data['phone'],
+            'memberid' => 'CP'.$this->generateID(),
             'password' => Hash::make($data['password']),
+            'isactive' => true
         ]);
+    }
+
+    private function generateID() {
+        $memid = 0;
+        for ($i=0; $i < 60; $i++) { 
+            $memid = mt_rand(100000000, 999999999);
+            if(!(User::where('memberid', $memid)->exists())) {
+               break;
+            }
+        }
+        return $memid;
     }
 }

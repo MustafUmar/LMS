@@ -15,16 +15,28 @@
 //     return view('welcome');
 // });
 
-Route::get('/', 'UserController@index');
+Route::get('/', 'UserController@index');//->middleware('verified');
+Route::get('contact', 'UserController@contact');
 
-Route::get('/contact', 'UserController@contact');
+Route::group(['middleware' => ['auth','verified']], function () {
+    Route::get('user/profile', 'UserController@profile');
+	Route::get('loan/apply', 'UserController@loanform');
 
-Route::get('/loan/apply', 'UserController@loanform');
+	Route::get('user/accounts', 'AccountController@index');
+	Route::get('user/account/new', 'AccountController@newAccount');
+	Route::post('user/account/create', 'AccountController@create');
+});
 
-Route::get('/signin', 'UserController@signin');
 
-Route::get('/signup', 'UserController@register');
 
-Route::get('/admin', function () {
+Route::get('signin', 'UserController@signin');
+
+Route::get('signup', 'UserController@register');
+
+Route::get('admin', function () {
     return view('layouts.adminlayout');
 });
+
+Auth::routes(['verify'=>true]);
+
+Route::get('/home', 'HomeController@index')->name('home');
