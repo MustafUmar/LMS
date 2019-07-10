@@ -11,11 +11,11 @@
 				<li class="dropdown">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Member <b class="caret"></b></a>
 					<ul class="dropdown-menu">
-						<li><a >Profile</a></li>
+						<li><a href="/user/profile">Profile</a></li>
 						<li><a >Be a Guarantor</a></li>
 					</ul>
 				</li>
-				<li><a href="#">Accounts</a></li>
+				<li><a href="/user/accounts">Accounts</a></li>
 				<li class="dropdown">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Loans <b class="caret"></b></a>
 					<ul class="dropdown-menu">
@@ -32,7 +32,23 @@
 				</li> --}}
 				<li><a href="#">About</a></li>
 				<li><a href="/contact">Contact</a></li>
-				<li><a class="btn" href="/signin">SIGN IN / SIGN UP</a></li>
+				@guest
+					<li><a class="btn" href="/signin">SIGN IN / SIGN UP</a></li>
+					
+				@else
+					<li><a><i class="fa fa-user"></i> <strong>{{Auth::user()->firstname}}</strong></a></li>
+					<li>
+						<a class="btn" href="{{ route('logout') }}"
+		                        onclick="event.preventDefault();
+		                        document.getElementById('logout-form').submit();">
+	                        {{ __('Logout') }}
+	                    </a>
+
+	                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+	                        @csrf
+	                    </form>
+					</li>
+				@endguest
 			</ul>
 		</div><!--/.nav-collapse -->
 	</div>

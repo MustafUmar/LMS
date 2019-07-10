@@ -6,7 +6,7 @@
 		
 		<ol class="breadcrumb">
 			<li><a href="index.html">Home</a></li>
-			<li class="active">About</li>
+			<li class="active">Contact</li>
 		</ol>
 
 		<div class="row">

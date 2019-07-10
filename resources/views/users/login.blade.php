@@ -20,14 +20,20 @@
 							<p class="text-center text-muted">Lorem ipsum dolor sit amet, <a href="/signup">Register</a> adipisicing elit. Quo nulla quibusdam cum doloremque incidunt nemo sunt a tenetur omnis odio. </p>
 							<hr>
 							
-							<form>
+							<form method="POST" action="{{ route('login') }}">
+								@csrf
 								<div class="top-margin">
 									<label>Username/Email <span class="text-danger">*</span></label>
-									<input type="text" class="form-control">
+									<input type="text" name="email" class="form-control">
+									@error('email')
+	                                    <span class="invalid-feedback" role="alert">
+	                                        <strong>{{ $message }}</strong>
+	                                    </span>
+	                                @enderror
 								</div>
 								<div class="top-margin">
 									<label>Password <span class="text-danger">*</span></label>
-									<input type="password" class="form-control">
+									<input type="password" name="password" class="form-control">
 								</div>
 
 								<hr>
