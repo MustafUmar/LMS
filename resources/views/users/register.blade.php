@@ -18,7 +18,7 @@
 		            @endforeach
 					</ul>
 				@endif
-				<div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+				<div class="">
 
 					<div class="panel panel-default">
 						<div class="panel-body">
@@ -110,6 +110,21 @@
 							<label>Permanent Home Address</label>
 							<input type="text" class="form-control">
 						</div>
+						<div class="row">
+						<div class="col-sm-2">
+						
+							<label>Occupation</label>
+							<input type="text" name="form-control">
+						</div>
+						<div class="top-margin">
+							<label>Maritel Status</label>
+							<input type="text" name="top-margin">
+						</div>
+					</div>
+					<div class="top-margin">
+									<label>Business Address if Any <span class="text-danger">*</span></label>
+									<input type="text" name="Address" class="form-control">
+								</div>
 						<div class="top-margin">
 									<label>Email Address <span class="text-danger">*</span></label>
 									<input type="text" name="email" class="form-control">
@@ -129,6 +144,18 @@
 									</div>
 								</div>
 								<hr>
+								<div class="top-margin">
+									<label>Next of Kin Full Name <span class="text-danger">*</span></label>
+									<input type="text" name="" class="form-control">
+								</div>
+								<div class="top-margin">
+									<label>Next of Kin Phone Number <span class="text-danger">*</span></label>
+									<input type="Number" name="" class="form-control">
+								</div>
+								<div class="top-margin">
+									<label>Next of Kin Address <span class="text-danger">*</span></label>
+									<input type="text" name="" class="form-control">
+								</div>
 								<div class="row">
 									<div class="col-lg-8">
 										<label class="checkbox">
