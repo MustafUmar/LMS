@@ -13,6 +13,8 @@
 	<link rel="stylesheet" media="screen" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
 	<link rel="stylesheet" href="{{URL::asset('front/css/bootstrap.min.css')}}">
 	<link rel="stylesheet" href="{{URL::asset('front/css/font-awesome.min.css')}}">
+	<link rel="stylesheet" href="{{URL::asset('front/css/jquery-ui.structure.min.css')}}">
+	<link rel="stylesheet" href="{{URL::asset('front/css/jquery-ui.theme.min.css')}}">
 
 	<!-- Custom styles for our template -->
 	<link rel="stylesheet" href="{{URL::asset('front/css/bootstrap-theme.css')}}" media="screen" >
@@ -150,6 +152,9 @@
 	<script src="{{URL::asset('front/js/bootstrap.min.js')}}"></script>
 	<script src="{{URL::asset('front/js/headroom.min.js')}}"></script>
 	<script src="{{URL::asset('front/js/jQuery.headroom.min.js')}}"></script>
+	<script src="{{URL::asset('front/js/jquery-ui.min.js')}}"></script>
+	<script src="{{URL::asset('front/js/jquery.steps.min.js')}}"></script>
+	<script src="{{URL::asset('front/js/jquery.validate.min.js')}}"></script>
 	<script src="{{URL::asset('front/js/template.js')}}"></script>
 	<script src="{{URL::asset('front/js/uapp.js')}}"></script>
 </body>

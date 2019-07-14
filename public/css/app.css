@@ -58,6 +58,14 @@
   padding: 0 1.2rem;
 }
 
+.ph-4 {
+  padding: 0 2.4rem;
+}
+
+.pd-0 {
+  padding: 0;
+}
+
 .pd-1 {
   padding: 0.3rem;
 }
@@ -242,5 +250,99 @@
 
 .thin-border2-box {
   border: 2px solid #ddd;
+}
+
+.wizard .steps ul {
+  display: flex;
+  list-style-type: none;
+  padding: 0;
+}
+
+.wizard .steps ul li {
+  flex: 1 1 0;
+  padding: 6px 7px;
+  border: 1px solid #dddfe1;
+}
+
+.wizard .steps ul li a {
+  text-decoration: none;
+  color: #827e90;
+  font-size: 13px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+}
+
+.wizard .steps ul li a > .heading-icon {
+  padding: 4px 8px 4px 4px;
+}
+
+.wizard .steps ul li a > .cuurent-info,
+.wizard .steps ul li a .number {
+  display: none;
+}
+
+.wizard .steps ul li.current a {
+  color: #cf8873;
+}
+
+#register-form .form-header > .heading-icon {
+  display: none;
+}
+
+#register-form .form-header.title {
+  display: none;
+}
+
+#register-form .form-header.title.current {
+  display: block;
+}
+
+#register-form .actions {
+  padding: 1.5rem 0;
+}
+
+#register-form .actions ul {
+  list-style-type: none;
+  display: flex;
+  padding: 0 3px;
+}
+
+#register-form .actions ul li {
+  flex: 1 1 0;
+}
+
+#register-form .actions ul li a {
+  display: inline;
+  padding: 7px 12px;
+  background-color: #cf8873;
+  border-radius: 6px;
+  color: white;
+  text-decoration: none;
+}
+
+#register-form .actions ul li:not(:first-child) {
+  text-align: right;
+}
+
+#register-form .actions ul li.disabled a {
+  background-color: #c5c5c5;
+}
+
+.form-control.error {
+  border: 1px solid #bd301e;
+  color: #8a1f11;
+}
+
+.form-control.error + .error {
+  color: #8a1f11;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.radio-field + .error {
+  color: #8a1f11;
+  font-size: 14px;
+  font-weight: 500;
 }
 

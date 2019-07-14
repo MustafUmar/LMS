@@ -1,0 +1,96 @@
+.wizard {
+	& .steps {
+		& ul {
+			display: flex;
+			list-style-type: none;
+			padding: 0;
+
+			& li {
+				flex: 1 1 0;
+				padding: 6px 7px;
+				border: 1px solid #dddfe1;
+
+				& a {
+					text-decoration: none;
+					color: #827e90;
+					font-size: 13px;
+					font-weight: 600;
+					display: flex;
+					align-items: center;
+					& > .heading-icon {
+						padding: 4px 8px 4px 4px;
+					}
+					& >.cuurent-info, .number {
+						display: none;
+					}
+				}
+
+				&.current {
+					& a {
+						color: #cf8873;
+					}
+				}
+			}
+		}
+	}
+}
+
+#register-form {
+	& .form-header {
+		& > .heading-icon {
+			display: none;
+		}
+		&.title {
+			display: none;
+			&.current {
+				display: block;
+			}
+		}
+	}
+
+	& .actions {
+		padding: 1.5rem 0;
+		& ul {
+			list-style-type: none;
+			display: flex;
+			padding: 0 3px;
+			& li {
+				flex: 1 1 0;
+				& a {
+					display: inline;
+					padding: 7px 12px;
+					// border: 1px solid #cf8873;
+					background-color: #cf8873;
+					border-radius: 6px;
+					color: white;
+					text-decoration: none;
+				}
+				&:not(:first-child) {
+					text-align: right;
+				}
+				&.disabled a {
+					background-color: #c5c5c5;
+				}
+			}
+			
+		}
+	}
+}
+
+.form-control.error {
+	border: 1px solid #bd301e;
+    color: #8a1f11;
+
+    & + .error, {
+    	color: #8a1f11;
+    	font-size: 14px;
+    	font-weight: 500;
+    }
+}
+
+.radio-field + .error {
+	color: #8a1f11;
+	font-size: 14px;
+	font-weight: 500;
+}
+
