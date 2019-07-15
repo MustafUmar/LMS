@@ -17,6 +17,7 @@
 
 Route::get('/', 'UserController@index');//->middleware('verified');
 Route::get('contact', 'UserController@contact');
+Route::get('about', 'UserController@about');
 
 Route::group(['middleware' => ['auth','verified']], function () {
     Route::get('user/profile', 'UserController@profile');
@@ -40,4 +41,4 @@ Route::get('admin', function () {
 Auth::routes(['verify'=>true]);
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::post('/test', 'HomeController@postForm');
+Route::post('/test', 'UserController@postForm');

@@ -38,4 +38,14 @@ class UserController extends Controller
     {
     	return view('users.register');
     }
+
+    public function about()
+    {
+        return view('users.aboutus');
+    }
+
+    public function postForm(Request $request)
+    {
+        return $request->all();
+    }
 }

@@ -108,7 +108,8 @@ regform.steps({
   bodyTag: '.form-section',
   labels: {
     current: "",
-    pagination: ""
+    pagination: "" // finish: '<input type="submit" value="Register" />'
+
   },
   // transitionEffect: "slideLeft",
   onStepChanging: function onStepChanging(event, currentIndex, newIndex) {
@@ -119,14 +120,18 @@ regform.steps({
   onStepChanged: function onStepChanged(event, currentIndex, priorIndex) {
     if (currentIndex == 1) {
       $('#username').val($('#regemail').val());
-    }
+    } // if (currentIndex == 4) { //if last step
+    //    $('.wizard').find('a[href="#finish"]').remove(); 
+    //    $('.wizard .actions li:last-child').append('<input type="submit" value="Register" />');
+    // }
+
   },
   onFinishing: function onFinishing(event, currentIndex) {
     regform.validate().settings.ignore = ":disabled";
     return regform.valid();
   },
   onFinished: function onFinished(event, currentIndex) {
-    $(this).submit();
+    $(this).submit(); // $("#register-form").submit();
   }
 }).validate({
   normalizer: function normalizer(value) {
@@ -163,6 +168,9 @@ regform.steps({
     dateofbirth: {
       required: true,
       dateform: true
+    },
+    gender: {
+      required: true
     },
     maritalstatus: {
       required: true

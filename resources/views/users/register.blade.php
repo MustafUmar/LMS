@@ -27,7 +27,7 @@
 							<p class="text-center text-muted">Already have an account? <a href="/signin">Login</a> to your Account </p>
 							<hr>
 
-							<form method="POST" id="register-form" action="/test{{-- {{ route('register') }} --}}">
+							<form method="POST" id="register-form" action="{{ route('register') }}">
 								@csrf
 								<h4 class="form-header"><span class="heading-icon"><i class="fa fa-male fa-2x"></i></span>Personal Information</h4>
 								<section class="form-section ph-4">
@@ -78,14 +78,29 @@
 										
 									</div>
 									<div class="top-margin">
-										<label>Marital Status <span class="text-danger">*</span></label>
-										<div class="radio-field">
-											<label class="radio-inline">
-											  <input type="radio" name="maritalstatus" value="single"> Single
-											</label>
-											<label class="radio-inline">
-											  <input type="radio" name="maritalstatus" value="married"> Married
-											</label>
+										<div class="row">
+											<div class="col-md-6">
+												<label>Gender <span class="text-danger">*</span></label>
+												<div class="radio-field">
+													<label class="radio-inline">
+													  <input type="radio" name="gender" value="single"> Male
+													</label>
+													<label class="radio-inline">
+													  <input type="radio" name="gender" value="married"> Female
+													</label>
+												</div>
+											</div>
+											<div class="col-md-6">
+												<label>Marital Status <span class="text-danger">*</span></label>
+												<div class="radio-field">
+													<label class="radio-inline">
+													  <input type="radio" name="maritalstatus" value="single"> Single
+													</label>
+													<label class="radio-inline">
+													  <input type="radio" name="maritalstatus" value="married"> Married
+													</label>
+												</div>
+											</div>
 										</div>
 									</div>
 									<div class="top-margin">
@@ -113,12 +128,16 @@
 								<h4 class="form-header"><span class="heading-icon"><i class="fa fa-user-md fa-2x"></i></span>Professional Information</h4>
 								<section class="form-section ph-4">
 									<div class="top-margin">
-										<label>Occupation <span class="text-danger">*</span></label>
+										<label>Profession <span class="text-danger">*</span></label>
 										<input type="text" name="occupation" class="form-control">
 									</div>
 									<div class="top-margin">
-										<label>Business Address (if any)</label>
-										<textarea name="bizaddress" class="form-control" rows="3"></textarea>
+										<label>Company Name (if any)</label>
+										<input type="text" name="compname" class="form-control">
+									</div>
+									<div class="top-margin">
+										<label>Company Address (if any)</label>
+										<textarea name="compaddress" class="form-control" rows="3"></textarea>
 									</div>
 								</section>
 

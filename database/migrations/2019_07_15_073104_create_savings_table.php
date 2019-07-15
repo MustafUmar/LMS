@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateContributionsTable extends Migration
+class CreateSavingsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,12 @@ class CreateContributionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('contributions', function (Blueprint $table) {
+        Schema::create('savings', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('account_id');
-            $table->string('account_name');
+            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('ctracc_id');
+            $table->decimal('amount', 8, 2);
+            // $table->dateTime('debit_date');
             $table->timestamps();
         });
     }
@@ -28,6 +30,6 @@ class CreateContributionsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('contributions');
+        Schema::dropIfExists('savings');
     }
 }
