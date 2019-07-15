@@ -23,7 +23,7 @@
 				<div class="col-md-4 col-sm-6 highlight">
 					<div class="h-caption"><h4><i class="fa fa-cogs fa-5"></i>Personal Loans</h4></div>
 					<div class="h-body text-center">
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque aliquid adipisci aspernatur. Soluta quisquam dignissimos earum quasi voluptate. Amet, dignissimos, tenetur vitae dolor quam iusto assumenda hic reprehenderit?</p>
+						<p>Get your laon for your business</p>
 					</div>
 				</div>
 				<div class="col-md-4 col-sm-6 highlight">

@@ -30,7 +30,7 @@
 						<li class="active"><a href="sidebar-right.html">Right Sidebar</a></li>
 					</ul>
 				</li> --}}
-				<li><a href="#">About</a></li>
+				<li><a href="/about">About</a></li>
 				<li><a href="/contact">Contact</a></li>
 				@guest
 					<li><a class="btn" href="/signin">SIGN IN / SIGN UP</a></li>
