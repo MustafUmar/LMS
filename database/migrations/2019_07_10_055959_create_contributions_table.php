@@ -16,7 +16,7 @@ class CreateContributionsTable extends Migration
         Schema::create('contributions', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('account_id');
-            $table->string('account_name');
+            $table->string('accountname');
             $table->timestamps();
         });
     }

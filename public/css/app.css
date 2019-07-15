@@ -126,6 +126,14 @@
   margin: 1.2rem 0;
 }
 
+.mv-4 {
+  margin: 2.4rem 0;
+}
+
+.mv-5 {
+  margin: 4.8rem 0;
+}
+
 .mh-1 {
   margin: 0 0.3rem;
 }
@@ -148,6 +156,14 @@
 
 .mr-3 {
   margin: 1.2rem;
+}
+
+.mr-4 {
+  margin: 2.4rem;
+}
+
+.mr-5 {
+  margin: 4.8rem;
 }
 
 .fs-1 {

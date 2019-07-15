@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Contribution extends Model
 {
-    protected $fillable = ['account_name'];
+    protected $fillable = ['accountname'];
 
     public function user()
     {

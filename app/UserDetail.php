@@ -9,9 +9,13 @@ class UserDetail extends Model
     protected $table = 'userdetails';
 
     protected $fillable = [
-    	'gender','maritalstatus','dob','pod','state_of_origin','phaddress','profession','companyname','companyaddress',
-    	'nokfullname','nokphonennum','nokaddress'
-	]
+    	'gender','maritalstatus','dob','pob','stateoforigin','phaddress','profession','companyname','companyaddress',
+    	'kinfullname','kinphonenum','kinaddress'
+	];
+
+	protected $casts = [
+	    'dob'  => 'date:d-M-Y',
+	];
 
 	public function user()
 	{

@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use App\UserDetail;
 use App\Account;
+use App\Contribution;
+use Carbon\Carbon;
 
 class RegisterController extends Controller
 {
@@ -63,7 +65,20 @@ class RegisterController extends Controller
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'confirmed'],
 
-            'stateoforigin' => ['required']
+            'stateoforigin' => ['required', 'string', 'max:100'],
+            'placeofbirth' => ['required', 'string', 'max:100'],
+            'dateofbirth' => ['required', 'string', 'date_format:d-M-Y'],
+            'gender' => ['required','max:1'],
+            'maritalstatus' => ['required','max:1'],
+            'phaddress' => ['required', 'string', 'max:255'],
+            'nokfullname' => ['required', 'string', 'max:150'],
+            'nokphonenum' => ['required', 'string', 'max:20'],
+            'nokaddress' => ['required', 'string', 'max:255'],
+            'occupation' => ['required', 'string', 'max:225'],
+            'bankname' => ['required', 'string', 'max:255'],
+            'accountname' => ['required', 'string', 'max:255'],
+            'accountnumber' => ['required', 'string', 'max:10'],
+            'username' => ['required', 'string', 'max:255'],
         ]);
     }
 
@@ -75,9 +90,7 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-
-        
-        return User::create([
+        $user = User::create([
             'firstname' => $data['firstname'],
             'lastname' => $data['lastname'],
             'email' => $data['email'],
@@ -86,6 +99,36 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
             'isactive' => true
         ]);
+
+        $user->userdetail()->create([
+            'gender' => $data['gender'],
+            'maritalstatus' => $data['maritalstatus'],
+            'dob' => Carbon::createFromFormat('d-M-Y', $data['dateofbirth']),
+            'pob' => $data['placeofbirth'],
+            'stateoforigin' => $data['stateoforigin'],
+            'phaddress' => $data['phaddress'],
+            'profession' => $data['occupation'],
+            'companyname' => $data['compname'],
+            'companyaddress' => $data['compaddress'],
+            'kinfullname' => $data['nokfullname'],
+            'kinphonenum' => $data['nokphonenum'],
+            'kinaddress' => $data['nokaddress']
+        ]);
+
+        $account = $user->account()->create([
+            'memberid' => $user->memberid,
+            'bankname' => $data['bankname'],
+            'accountname' => $data['accountname'],
+            'accountnumber' => $data['accountnumber']
+        ]);
+
+        $contrib = new Contribution([
+            'accountname' => $account->accountname
+        ]);
+        $contrib->account()->associate($account);
+        $contrib->save();
+
+        return $user;
     }
 
     private function generateID() {

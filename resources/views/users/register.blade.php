@@ -35,15 +35,15 @@
 										<div class="row">
 											<div class="col-md-4">
 												<label>First Name <span class="text-danger">*</span></label>
-												<input type="text" name="firstname" class="form-control">
+												<input type="text" name="firstname" class="form-control" value="{{old('firstname')}}">
 											</div>
 											<div class="col-md-4">
 												<label>Other Name (if any)</label>
-												<input type="text" name="othername" class="form-control">
+												<input type="text" name="othername" class="form-control" value="{{old('othername')}}">
 											</div>
 											<div class="col-md-4">
 												<label>Last Name <span class="text-danger">*</span></label>
-												<input type="text" name="lastname" class="form-control">
+												<input type="text" name="lastname" class="form-control" value="{{old('lastname')}}">
 											</div>
 										</div>
 									</div>
@@ -51,11 +51,11 @@
 										<div class="row">
 											<div class="col-md-6">
 												<label>Email <span class="text-danger">*</span></label>
-												<input type="text" id="regemail" name="email" class="form-control">
+												<input type="text" id="regemail" name="email" class="form-control" value="{{old('email')}}">
 											</div>
 											<div class="col-md-6">
 												<label>Phone Number <span class="text-danger">*</span></label>
-												<input type="text" name="phone" class="form-control">
+												<input type="text" name="phone" class="form-control" value="{{old('phone')}}">
 											</div>
 										</div>
 										
@@ -64,15 +64,15 @@
 										<div class="row">
 											<div class="col-md-4">
 												<label>State of Origin <span class="text-danger">*</span></label>
-												<input type="text" name="stateoforigin" class="form-control">
+												<input type="text" name="stateoforigin" class="form-control" value="{{old('stateoforigin')}}">
 											</div>
 											<div class="col-md-4">
 												<label>Place of Birth <span class="text-danger">*</span></label>
-												<input type="text" name="placeofbirth" class="form-control">
+												<input type="text" name="placeofbirth" class="form-control" value="{{old('placeofbirth')}}">
 											</div>
 											<div class="col-md-4">
 												<label>Date of birth <span class="text-danger">*</span></label>
-												<input type="text" name="dateofbirth" id="birthdatepicker" class="form-control" readonly>
+												<input type="text" name="dateofbirth" id="birthdatepicker" class="form-control" value="{{old('dateofbirth')}}" readonly>
 											</div>
 										</div>
 										
@@ -83,10 +83,10 @@
 												<label>Gender <span class="text-danger">*</span></label>
 												<div class="radio-field">
 													<label class="radio-inline">
-													  <input type="radio" name="gender" value="single"> Male
+													  <input type="radio" name="gender" {{old('gender') == 'M' ? 'checked' : ''}} value="M"> Male
 													</label>
 													<label class="radio-inline">
-													  <input type="radio" name="gender" value="married"> Female
+													  <input type="radio" name="gender" {{old('gender') == 'F' ? 'checked' : ''}} value="F"> Female
 													</label>
 												</div>
 											</div>
@@ -94,10 +94,10 @@
 												<label>Marital Status <span class="text-danger">*</span></label>
 												<div class="radio-field">
 													<label class="radio-inline">
-													  <input type="radio" name="maritalstatus" value="single"> Single
+													  <input type="radio" name="maritalstatus" {{old('maritalstatus') == 'S' ? 'checked' : ''}} value="S"> Single
 													</label>
 													<label class="radio-inline">
-													  <input type="radio" name="maritalstatus" value="married"> Married
+													  <input type="radio" name="maritalstatus" {{old('maritalstatus') == 'M' ? 'checked' : ''}} value="M"> Married
 													</label>
 												</div>
 											</div>
@@ -105,7 +105,7 @@
 									</div>
 									<div class="top-margin">
 										<label>Permanent Home Address <span class="text-danger">*</span></label>
-										<textarea name="phaddress" class="form-control" rows="3"></textarea>
+										<textarea name="phaddress" class="form-control" rows="3">{{old('placeofbirth')}}</textarea>
 									</div>
 								</section>
 
@@ -113,15 +113,15 @@
 								<section class="form-section ph-4">
 									<div class="top-margin">
 										<label>Next of Kin Full Name <span class="text-danger">*</span></label>
-										<input type="text" name="nokfullname" class="form-control">
+										<input type="text" name="nokfullname" class="form-control" value="{{old('nokfullname')}}">
 									</div>
 									<div class="top-margin">
 										<label>Next of Kin Phone Number <span class="text-danger">*</span></label>
-										<input type="Number" name="nokphonenum" class="form-control">
+										<input type="Number" name="nokphonenum" class="form-control" value="{{old('nokphonenum')}}">
 									</div>
 									<div class="top-margin">
 										<label>Next of Kin Address <span class="text-danger">*</span></label>
-										<textarea name="nokaddress" class="form-control" rows="3"></textarea>
+										<textarea name="nokaddress" class="form-control" rows="3">{{old('nokaddress')}}</textarea>
 									</div>
 								</section>
 								
@@ -129,15 +129,15 @@
 								<section class="form-section ph-4">
 									<div class="top-margin">
 										<label>Profession <span class="text-danger">*</span></label>
-										<input type="text" name="occupation" class="form-control">
+										<input type="text" name="occupation" class="form-control" value="{{old('occupation')}}">
 									</div>
 									<div class="top-margin">
 										<label>Company Name (if any)</label>
-										<input type="text" name="compname" class="form-control">
+										<input type="text" name="compname" class="form-control" value="{{old('compname')}}">
 									</div>
 									<div class="top-margin">
 										<label>Company Address (if any)</label>
-										<textarea name="compaddress" class="form-control" rows="3"></textarea>
+										<textarea name="compaddress" class="form-control" rows="3">{{old('compaddress')}}</textarea>
 									</div>
 								</section>
 
@@ -146,15 +146,15 @@
 									<h5>Your information should be the same with your bank</h5>
 									<div class="top-margin">
 										<label>Bank Name <span class="text-danger">*</span></label>
-										<input type="text" name="bankname" class="form-control">
+										<input type="text" name="bankname" class="form-control" value="{{old('bankname')}}">
 									</div>
 									<div class="top-margin">
 										<label>Account Name <span class="text-danger">*</span></label>
-										<input type="text" name="accountname" class="form-control">
+										<input type="text" name="accountname" class="form-control" value="{{old('accountname')}}">
 									</div>
 									<div class="top-margin">
 										<label>Account Number <span class="text-danger">*</span></label>
-										<input type="number" name="accountnumber" class="form-control">
+										<input type="number" name="accountnumber" class="form-control" value="{{old('accountnumber')}}">
 									</div>
 								</section>
 								
@@ -163,7 +163,7 @@
 									<div class="top-margin row">
 										<div class="col-md-6">
 											<label>Username <span class="text-danger">*</span></label>
-											<input type="text" id="username" name="username" class="form-control" readonly>
+											<input type="text" id="username" name="username" class="form-control" value="{{old('username')}}" readonly>
 										</div>
 										
 									</div>

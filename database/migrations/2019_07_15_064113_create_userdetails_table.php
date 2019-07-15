@@ -20,14 +20,14 @@ class CreateUserdetailsTable extends Migration
             $table->char('maritalstatus', 2);
             $table->date('dob');
             $table->string('pob');
-            $table->string('state_of_origin');
+            $table->string('stateoforigin');
             $table->string('phaddress');
             $table->string('profession');
             $table->string('companyname')->nullable();
             $table->string('companyaddress')->nullable();
-            $table->string('nokfullname');
-            $table->string('nokphonenum');
-            $table->string('nokaddress');
+            $table->string('kinfullname');
+            $table->string('kinphonenum');
+            $table->string('kinaddress');
             $table->timestamps();
         });
     }
