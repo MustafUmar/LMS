@@ -40,10 +40,11 @@
     <link href="{{URL::asset('css/theme.css')}}" rel="stylesheet">
     <link href="{{URL::asset('css/style-responsive.css')}}" rel="stylesheet"/>
     <link href="{{URL::asset('css/class-helpers.css')}}" rel="stylesheet"/>
+    <link href="{{URL::asset('css/site.css')}}" rel="stylesheet"/>
 
     <!--Color schemes-->
     {{-- <link href="../../../assets/css/colors/green.css" rel="stylesheet"> --}}
-    <link href="{{URL::asset('css/colors/turquoise.css')}}" rel="stylesheet">
+    {{-- <link href="{{URL::asset('css/colors/turquoise.css')}}" rel="stylesheet"> --}}
     {{-- <link href="../../../assets/css/colors/blue.css" rel="stylesheet"> --}}
     {{-- <link href="../../../assets/css/colors/amethyst.css" rel="stylesheet"> --}}
     {{-- <link href="../../../assets/css/colors/cloud.css" rel="stylesheet"> --}}
@@ -51,7 +52,7 @@
     {{-- <link href="../../../assets/css/colors/carrot.css" rel="stylesheet"> --}}
     {{-- <link href="../../../assets/css/colors/alizarin.css" rel="stylesheet"> --}}
     {{-- <link href="../../../assets/css/colors/concrete.css" rel="stylesheet"> --}}
-    {{-- <link href="../../../assets/css/colors/wet-asphalt.css" rel="stylesheet"> --}}
+    <link href="{{URL::asset('css/colors/wet-asphalt.css')}}" rel="stylesheet">
 
     <!--Fonts-->
     <link href="{{URL::asset('fonts/Indie-Flower/indie-flower.css')}}" rel="stylesheet" />
@@ -91,7 +92,7 @@
 -->
 
 
-<body id="turquoise-scheme">
+<body id="wet-asphalt-scheme">
 
     <!--======== Start Style Switcher ========-->    
     {{-- <i class="style-switcher-btn fa fa-cogs hidden-xs"></i>
@@ -140,49 +141,12 @@
                 <!--======== Grid Menu End ========-->
 
                 <!--======== Page Title and Breadcrumbs Start ========-->
-                <div class="top-page-header">
-                    
-                    <div class="page-title">
-                        <h2>Thema Blank Page</h2>
-                        <small>Thema blank page template.</small>
-                    </div>
-                    <div class="page-breadcrumb">
-                        <nav class="c_breadcrumbs">
-                            <ul>
-                                <li><a href="#">Thema</a></li>
-                                <li><a href="#">UI Layouts</a></li>
-                                <li class="active"><a href="#">Blank Page</a></li>
-                            </ul>
-                        </nav>
-                    </div>
-                    <div class="right-menu pull-right">
-                        
-                    </div>
-
-                    <div class="pull-right toggle-right-sidebar">
-                        <span class="fa fa-outdent fa-2x title-open-right-sidebar"></span>
-                    </div>
-
-                </div>
+               {{--  @component('shared.pageheader')
+                Dashboard
+                @endcomponent --}}
                 <!--======== Page Title and Breadcrumbs End ========-->
 
-                <!--======== START BUG TRACKER FORM ========-->
-                <div class="c_panel">
-
-                    <div class="c_title">
-                        <h2>Blank Page</h2>
-                        <div class="clearfix"></div>
-                    </div><!--/.c_title-->
-
-                    <div class="c_content">
-
-                        <h4>Sub content</h4>
-
-                        
-                    </div><!--/.c_content-->
-
-                </div><!--/.c_panels-->
-                <!--======== END BUG TRACKER FORM ========-->
+                @yield('content')
 
 
             </section>
@@ -219,6 +183,7 @@
 
 <!--common script init for all pages-->
 <script src="{{URL::asset('js/theme.js')}}" type="text/javascript" ></script>
+<script src="{{URL::asset('js/site.js')}}" type="text/javascript" ></script>
 
 <script type="text/javascript">
 

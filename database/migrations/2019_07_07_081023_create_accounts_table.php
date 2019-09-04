@@ -20,6 +20,7 @@ class CreateAccountsTable extends Migration
             $table->string('bankname');
             $table->string('accountnumber')->unique();
             $table->string('accountname');
+            $table->decimal('balance', 9, 2);
             $table->timestamps();
         });
     }

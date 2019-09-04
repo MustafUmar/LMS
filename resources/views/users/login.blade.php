@@ -17,7 +17,9 @@
 					<div class="panel panel-default">
 						<div class="panel-body">
 							<h3 class="thin text-center">Sign in to your account</h3>
-							<p class="text-center text-muted">Lorem ipsum dolor sit amet, <a href="/signup">Register</a> adipisicing elit. Quo nulla quibusdam cum doloremque incidunt nemo sunt a tenetur omnis odio. </p>
+							<p class="text-center text-muted">
+								Don't have an account? <a href="/signup">Click here</a> to create a new account.
+							</p>
 							<hr>
 							
 							<form method="POST" action="{{ route('login') }}">

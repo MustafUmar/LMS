@@ -24,7 +24,7 @@
 					<div class="panel panel-default">
 						<div class="panel-body">
 							<h3 class="thin text-center">Register a new account</h3>
-							<p class="text-center text-muted">Already have an account? <a href="/signin">Login</a> to your Account </p>
+							<p class="text-center text-muted">Already have an account? <a href="/signin">Login</a> to your account.</p>
 							<hr>
 
 							<form method="POST" id="register-form" action="{{ route('register') }}">

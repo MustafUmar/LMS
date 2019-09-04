@@ -59,7 +59,7 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'firstname' => ['required', 'string', 'max:100'],
-            'othername' => ['string','max:100'],
+            'othername' => ['max:100'],
             'lastname' => ['required', 'string', 'max:100'],
             'phone' => ['required', 'string', 'max:50'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
@@ -119,11 +119,13 @@ class RegisterController extends Controller
             'memberid' => $user->memberid,
             'bankname' => $data['bankname'],
             'accountname' => $data['accountname'],
-            'accountnumber' => $data['accountnumber']
+            'accountnumber' => $data['accountnumber'],
+            'balance' => 0
         ]);
 
         $contrib = new Contribution([
-            'accountname' => $account->accountname
+            'accountname' => $account->accountname,
+            'balance' => 0
         ]);
         $contrib->account()->associate($account);
         $contrib->save();

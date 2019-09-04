@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Contribution extends Model
 {
-    protected $fillable = ['accountname'];
+    protected $fillable = ['accountname','balance'];
 
     public function user()
     {
@@ -16,5 +16,10 @@ class Contribution extends Model
     public function account()
     {
     	return $this->belongsTo('App\Account','account_id');
+    }
+
+    public function transaction()
+    {
+        return $this->hasMany('App\Transaction', 'ctracc_id');
     }
 }

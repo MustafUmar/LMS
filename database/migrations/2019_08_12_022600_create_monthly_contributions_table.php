@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSavingsTable extends Migration
+class CreateMonthlyContributionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class CreateSavingsTable extends Migration
      */
     public function up()
     {
-        Schema::create('savings', function (Blueprint $table) {
+        Schema::create('monthly_contributions', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('ctracc_id');
-            $table->decimal('amount', 8, 2);
-            // $table->dateTime('debit_date');
+            $table->dateTime('begin_date');
+            $table->dateTime('close_date')->nullable();
+            $table->decimal('total_contrib', 10, 2)->nullable();
+            $table->boolean('current')->default(false);
             $table->timestamps();
         });
     }
@@ -30,6 +30,6 @@ class CreateSavingsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('savings');
+        Schema::dropIfExists('monthly_contributions');
     }
 }

@@ -16,7 +16,7 @@ class Admin extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'firstname', 'lastname', 'email', 'phone', 'password',
+        'firstname', 'lastname', 'email', 'phone', 'password', 'last_login', 'last_login_ip', 'is_super', 'is_active'
     ];
 
     /**
@@ -28,12 +28,18 @@ class Admin extends Authenticatable
         'password', 'remember_token',
     ];
 
-    /**
-     * The attributes that should be cast to native types.
-     *
-     * @var array
-     */
-    // protected $casts = [
-    //     'email_verified_at' => 'datetime',
-    // ];
+    public function roles()
+    {
+        return $this->belongsToMany('App\Role','user_role');
+    }
+
+    public function hasAnyRole($roles)
+    {
+      return null !== $this->roles()->whereIn('name', $roles)->first();
+    }
+    
+    public function hasRole($role)
+    {
+      return null !== $this->roles()->where('name', $role)->first();
+    }
 }

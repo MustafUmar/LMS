@@ -20,6 +20,10 @@ class CreateAdminsTable extends Migration
             $table->string('email')->unique();
             $table->string('phone')->unique();
             $table->string('password');
+            $table->boolean('is_super')->default(false);
+            $table->boolean('is_active')->default(false);
+            $table->dateTime('last_login')->nullable();
+            $table->ipAddress('last_login_ip')->nullable();
             $table->timestamps();
         });
     }

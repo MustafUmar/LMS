@@ -17,6 +17,7 @@ class CreateContributionsTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('account_id');
             $table->string('accountname');
+            $table->decimal('balance', 9, 2);
             $table->timestamps();
         });
     }

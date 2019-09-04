@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Account extends Model
 {
-    protected $fillable = ['memberid','bankname','accountname','accountnumber'];
+    protected $fillable = ['memberid','bankname','accountname','accountnumber','balance'];
 
     public function user()
     {

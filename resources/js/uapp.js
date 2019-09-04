@@ -49,8 +49,8 @@ regform.steps({
     }
 }).validate({
 	normalizer: function( value ) {
-	    return $.trim( value );
-	  },
+		return $.trim( value );
+	},
 	rules: {
 		firstname: { required: true, lettersonly: true },
 		othername: { lettersonly: true },
@@ -97,10 +97,12 @@ $('#birthdatepicker').datepicker({
 $('#contribute-modal').on('show.bs.modal', function (event) {
 	var button = $(event.relatedTarget) 
 	var member = button.data('member')
-  
+  	var account = button.data('account')
 	var modal = $(this)
-	modal.find('.modal-title').text(member)
-	// modal.find('.modal-body input').val(recipient)
+	// modal.find('.modal-title').text(member)
+	$('#modal-accountname').text(account)
+	$('#modal-trace').val(member)
+
 })
 
 

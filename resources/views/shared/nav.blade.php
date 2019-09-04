@@ -3,7 +3,7 @@
     <!--logo start-->
     <div class="brand">
 
-        <a href="../index.html" class="logo">
+        <a href="/admin/dashboard" class="logo">
             LMS Dashboard
         </a>
         <div class="sidebar-toggle-box">
@@ -100,7 +100,7 @@
 
             <li class="dropdown">
                 <a href="javascript:void(0);" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                    <img src="{{URL::asset('images/profile.jpg')}}" alt="image">John Doe
+                    <img src="{{URL::asset('images/profile.jpg')}}" alt="image"> {{Auth::guard('admin')->user()->firstname}}
                     <span class=" fa fa-angle-down"></span>
                 </a>
                 <ul class="dropdown-menu dropdown-usermenu animated fadeInUp pull-right">
@@ -116,7 +116,13 @@
                     <li>
                         <a href="javascript:void(0);" class="hvr-bounce-to-right">Help</a>
                     </li>
-                    <li><a href="../app-pages/page-login-2.html" class="hvr-bounce-to-right"><i class=" icon-login pull-right"></i> Log Out</a>
+                    <li><a class="hvr-bounce-to-right" href="#" onclick="event.preventDefault();
+                                document.getElementById('admin-logout').submit();">
+                        <i class=" icon-login pull-right"></i> Log Out</a>
+
+                        <form id="admin-logout" action="{{ url('admin/logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
                     </li>
                 </ul>
             </li>
