@@ -14,6 +14,7 @@
 				<h1 class="page-title">Profile</h1>
 			</header>
 			<br>
+			Notifications
 
 			<div class="row">
 				<div class="col-sm-6">

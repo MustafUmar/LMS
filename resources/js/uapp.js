@@ -1,3 +1,9 @@
+$.ajaxSetup({
+    headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
+});
+
 $.validator.addMethod( "lettersonly", function( value, element ) {
 	return this.optional( element ) || /^[a-z]+$/i.test( value );
 }, "Letters only please" );
@@ -105,5 +111,62 @@ $('#contribute-modal').on('show.bs.modal', function (event) {
 
 })
 
+$('#request_modal').on('show.bs.modal', function (event) {
+	
+})
+$('#member-search').keyup(function(e) {
+	var search = $(this).val().trim();
+	var gid = $('#griddata').val();
+	var mlist = $('#group-fetch-list');
+	var htmlist = '';
+	if(search.length > 3) {
+		$('.loading-overlay').show();
+		$.post('/member/search/'+gid+'/'+search, function(data) {
+			console.log(data);
+			if(data.length > 0) {
+				for(key in data) {
+					htmlist+= `
+						<div class="list-group-item">
+			        		<div class="two-flexed-left-shrink">
+							  <div class="">
+							    <div class="">
+							      <img class="img-circle img-size-2" src="/images/profile.jpg" alt="...">
+							    </div>
+							  </div>
+							  <div class="pd-3">
+							  	<div class="two-flexed-spacebtw">
+							  		<p class=""><strong>${data[key]['firstname']} ${data[key]['lastname']}</strong></p>
+							  		<button id="send-invite" data-mid="${data[key]['id']}" class="btn btn-default btn-sm">Send Invitation</button>
+							  	</div>
+							  </div>
+							</div>
+			        	</div>
+					`;
+					mlist.html(htmlist);
+					$('.loading-overlay').hide();
+				}
+			} else {
+				mlist.html('<div class="list-group-item text-muted"><em>No such member</em></div>');
+				$('.loading-overlay').hide();
+			}
+			
+		}).fail(function(data) {
+			console.log(data);
+			mlist.html('<div class="list-group-item text-muted"><em>No entries</em></div>');
+			$('.loading-overlay').hide();
+		})
+	}
+});
+
+$('#send-invite').on('click', function(e) {
+	console($(this).data['mid']);
+	let middata = $(this).data['mid'];
+	let griddata = $('#griddata').val();
+
+	$.post('/member/invite',{grid:griddata,mid:middata}, function(data) {
+		console.log(data);
+	});
+
+});
 
 

@@ -23,6 +23,14 @@ Route::group(['middleware' => ['auth','verified']], function () {
     Route::get('user/profile', 'UserController@profile');
 	Route::get('loan/apply', 'UserController@loanform');
 
+	Route::get('circles', 'GroupController@index');
+	Route::get('circle/{circle}', 'GroupController@view');
+	Route::get('circle/new', 'GroupController@add');
+	Route::post('circle/create', 'GroupController@create');
+
+	Route::post('member/search/{gid}/{q}', 'GroupController@search');
+	Route::post('member/invite', 'GroupController@invite');
+
 	Route::get('user/accounts', 'AccountController@index');
 	Route::get('user/account/new', 'AccountController@newAccount');
 	Route::post('user/account/create', 'AccountController@create');

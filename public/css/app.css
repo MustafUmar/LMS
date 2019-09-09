@@ -78,6 +78,10 @@
   padding: 1.2rem;
 }
 
+.pd-4 {
+  padding: 2.4rem;
+}
+
 .mtop-0 {
   margin-top: 0;
 }
@@ -259,6 +263,18 @@
   flex: 0 0 auto;
 }
 
+.two-flexed-left-shrink {
+  display: flex;
+}
+
+.two-flexed-left-shrink div {
+  flex: 1 1 auto;
+}
+
+.two-flexed-left-shrink div:first-child {
+  flex: 0 0 auto;
+}
+
 .three-flexed-center-grow {
   display: flex;
 }
@@ -282,6 +298,23 @@
 }
 
 .flexed button:not(:first-child) {
+  margin: 0 6px;
+}
+
+.flexed-right {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.flexed-right div {
+  padding: 3px 10px;
+}
+
+.flexed-right span {
+  padding: 3px 10px;
+}
+
+.flexed-right button:not(:last-child) {
   margin: 0 6px;
 }
 
@@ -362,6 +395,43 @@
 
 .round-shadow-light-box:hover {
   box-shadow: 0px 1px 3px 2px #cccccc;
+}
+
+/*--------------image-------------*/
+
+.img-size-1 {
+  width: 40px;
+  height: 40px;
+}
+
+.img-size-2 {
+  width: 50px;
+  height: 50px;
+}
+
+.img-size-3 {
+  width: 60px;
+  height: 60px;
+}
+
+.img-size-4 {
+  width: 70px;
+  height: 70px;
+}
+
+.img-size-5 {
+  width: 80px;
+  height: 80px;
+}
+
+.img-size-6 {
+  width: 90px;
+  height: 90px;
+}
+
+.img-size-7 {
+  width: 100px;
+  height: 100px;
 }
 
 .wizard .steps ul {
@@ -456,5 +526,24 @@
   color: #8a1f11;
   font-size: 14px;
   font-weight: 500;
+}
+
+#group-fetch-list {
+  height: 40rem;
+  overflow-y: scroll;
+  position: relative;
+}
+
+#group-fetch-list .loading-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(130, 128, 128, 0.65);
+  padding: 15rem;
+  text-align: center;
+  z-index: 100;
+  display: none;
 }
 

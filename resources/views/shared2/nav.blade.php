@@ -18,10 +18,17 @@
 					<li><a href="/user/accounts">Accounts</a></li>
 				@endauth
 				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Circles <b class="caret"></b></a>
+					<ul class="dropdown-menu">
+						<li><a href="/circles">Browse Circles</a></li>
+						<li><a href="#">Your Circle</a></li>
+					</ul>
+				</li>
+				<li class="dropdown">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Loans <b class="caret"></b></a>
 					<ul class="dropdown-menu">
-						<li><a >Personal Loan</a></li>
 						<li><a href="/loan/apply">Apply</a></li>
+						<li><a href="#">Status</a></li>
 					</ul>
 				</li>
 				{{-- <li class="dropdown">
@@ -38,6 +45,7 @@
 					
 				@else
 					<li><a href="/user/profile"><i class="fa fa-user"></i> <strong>{{Auth::user()->firstname}}</strong></a></li>
+					<li><a><i class="fa fa-bell fa-lg"></i></a></li>
 					<li>
 						<a class="btn" href="{{ route('logout') }}"
 		                        onclick="event.preventDefault();

@@ -9,6 +9,7 @@
                         <p class="text-right profile-options"><span class="profile-options-close pe-7s-close fa-2x font-bold"></span></p>
 
                         <div class="profile-options-list animated zoomIn">
+                            <p><a href="/">Go to main site</a></p>
                             <p><a href="#">Profile</a></p>
                             <p><a href="#">Settings</a></p>
                             <p><a href="#">Log Out</a></p>
@@ -40,6 +41,17 @@
                 </li>
                 <li>
                     <a href="/loans" class="hvr-bounce-to-right-sidebar-parent {{request()->is('loans')?'active':''}}"><span class='icon-sidebar icon-screen-desktop fa-2x'></span><span>Loans</span></a>
+                </li>
+                <li class="sub-menu">
+                    <a href="/admin/dashboard" class="hvr-bounce-to-right-sidebar-parent {{request()->is('invoice')?'active':''}}"><span class='icon-sidebar icon-home fa-2x'></span><span>Finance</span></a>
+                     <ul class='sub'>
+                        <li>
+                            <a href="#">Invoice</a>
+                        </li>
+                        <li>
+                            <a href="#">Contributions</a>
+                        </li>
+                    </ul>
                 </li>
                 <li>
                     <a href="#" class="hvr-bounce-to-right-sidebar-parent"><span class='icon-sidebar icon-screen-desktop fa-2x'></span><span>Reports</span></a>

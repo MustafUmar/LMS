@@ -93,6 +93,11 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
+$.ajaxSetup({
+  headers: {
+    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+  }
+});
 $.validator.addMethod("lettersonly", function (value, element) {
   return this.optional(element) || /^[a-z]+$/i.test(value);
 }, "Letters only please");
@@ -241,6 +246,46 @@ $('#contribute-modal').on('show.bs.modal', function (event) {
 
   $('#modal-accountname').text(account);
   $('#modal-trace').val(member);
+});
+$('#request_modal').on('show.bs.modal', function (event) {});
+$('#member-search').keyup(function (e) {
+  var search = $(this).val().trim();
+  var gid = $('#griddata').val();
+  var mlist = $('#group-fetch-list');
+  var htmlist = '';
+
+  if (search.length > 3) {
+    $('.loading-overlay').show();
+    $.post('/member/search/' + gid + '/' + search, function (data) {
+      console.log(data);
+
+      if (data.length > 0) {
+        for (key in data) {
+          htmlist += "\n\t\t\t\t\t\t<div class=\"list-group-item\">\n\t\t\t        \t\t<div class=\"two-flexed-left-shrink\">\n\t\t\t\t\t\t\t  <div class=\"\">\n\t\t\t\t\t\t\t    <div class=\"\">\n\t\t\t\t\t\t\t      <img class=\"img-circle img-size-2\" src=\"/images/profile.jpg\" alt=\"...\">\n\t\t\t\t\t\t\t    </div>\n\t\t\t\t\t\t\t  </div>\n\t\t\t\t\t\t\t  <div class=\"pd-3\">\n\t\t\t\t\t\t\t  \t<div class=\"two-flexed-spacebtw\">\n\t\t\t\t\t\t\t  \t\t<p class=\"\"><strong>".concat(data[key]['firstname'], " ").concat(data[key]['lastname'], "</strong></p>\n\t\t\t\t\t\t\t  \t\t<button id=\"send-invite\" data-mid=\"").concat(data[key]['id'], "\" class=\"btn btn-default btn-sm\">Send Invitation</button>\n\t\t\t\t\t\t\t  \t</div>\n\t\t\t\t\t\t\t  </div>\n\t\t\t\t\t\t\t</div>\n\t\t\t        \t</div>\n\t\t\t\t\t");
+          mlist.html(htmlist);
+          $('.loading-overlay').hide();
+        }
+      } else {
+        mlist.html('<div class="list-group-item text-muted"><em>No such member</em></div>');
+        $('.loading-overlay').hide();
+      }
+    }).fail(function (data) {
+      console.log(data);
+      mlist.html('<div class="list-group-item text-muted"><em>No entries</em></div>');
+      $('.loading-overlay').hide();
+    });
+  }
+});
+$('#send-invite').on('click', function (e) {
+  console($(this).data['mid']);
+  var middata = $(this).data['mid'];
+  var griddata = $('#griddata').val();
+  $.post('/member/invite', {
+    grid: griddata,
+    mid: middata
+  }, function (data) {
+    console.log(data);
+  });
 });
 
 /***/ }),

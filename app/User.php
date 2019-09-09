@@ -37,6 +37,16 @@ class User extends Authenticatable implements MustVerifyEmail
         'email_verified_at' => 'datetime',
     ];
 
+    public function group()
+    {
+        return $this->belongsToMany('App\Group', 'group_member');
+    }
+
+    public function groupowner()
+    {
+        return $this->hasMany('App\Group','owner');
+    }
+
     public function account()
     {
         return $this->hasMany('App\Account','user_id');
